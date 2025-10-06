@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Venkata Prudhvi Raj Konda | Principal Salesforce Engineer</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/feather-icons"></script>
+  <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
+</head>
+<body class="bg-gray-900 text-gray-200 font-sans transition-colors duration-500">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-6 py-4 bg-gray-800 shadow-lg sticky top-0 z-50">
+    <h1 class="font-bold text-lg">Prudhvi Konda</h1>
+    <div class="space-x-4">
+      <a href="#about" class="hover:text-blue-400">About</a>
+      <a href="#experience" class="hover:text-blue-400">Experience</a>
+      <a href="#skills" class="hover:text-blue-400">Skills</a>
+      <a href="#certs" class="hover:text-blue-400">Certifications</a>
+      <button id="themeToggle" class="ml-4" title="Toggle theme">
+        <i data-feather="moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="flex flex-col items-center justify-center text-center h-[80vh]">
+    <h1 class="text-5xl font-bold mb-3">Venkata Prudhvi Raj Konda</h1>
+    <p class="text-xl text-gray-400">Principal Salesforce Engineer | 5x Certified</p>
+    <div class="mt-6 flex space-x-6">
+      <a href="mailto:pkonda1990@gmail.com"><i data-feather="mail"></i></a>
+      <a href="https://www.linkedin.com/in/vkonda/"><i data-feather="linkedin"></i></a>
+      <a href="tel:+14708197136"><i data-feather="phone"></i></a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-4">About</h2>
+    <p class="text-gray-300 leading-relaxed">
+      I’m a Principal Salesforce Engineer with 9+ years of experience delivering scalable Salesforce solutions
+      across Sales, Service, and CPQ. I’ve led enterprise transformations, architected integrations, and driven
+      adoption through innovation. Passionate about data-first, AI-enhanced architectures and mentoring teams.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-6">Technical Skills</h2>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-center">
+      <div class="bg-gray-800 rounded-xl p-4 shadow">Salesforce Platform</div>
+      <div class="bg-gray-800 rounded-xl p-4 shadow">Apex & LWC</div>
+      <div class="bg-gray-800 rounded-xl p-4 shadow">AWS</div>
+      <div class="bg-gray-800 rounded-xl p-4 shadow">REST & CI/CD</div>
+      <div class="bg-gray-800 rounded-xl p-4 shadow">Java, C#</div>
+      <div class="bg-gray-800 rounded-xl p-4 shadow">Retool & CRMA</div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience" class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-8">Experience</h2>
+    <div class="space-y-10">
+      <div class="border-l-4 border-blue-500 pl-6">
+        <h3 class="text-xl font-semibold">Principal Salesforce Engineer — Cardlytics</h3>
+        <p class="text-sm text-gray-400 mb-2">Nov 2022 – Present | Atlanta, GA</p>
+        <p>Led enterprise-scale Salesforce engineering across Lead-to-Cash. Built event-driven data flows, Retool integrations, and CRMA insights pipelines.</p>
+      </div>
+      <div class="border-l-4 border-blue-500 pl-6">
+        <h3 class="text-xl font-semibold">Senior Software Engineer — ActiveCampaign</h3>
+        <p class="text-sm text-gray-400 mb-2">Apr 2022 – Oct 2022 | Atlanta, GA</p>
+        <p>Enhanced Salesforce–ActiveCampaign integrations, enabling reliable marketing automation sync.</p>
+      </div>
+      <div class="border-l-4 border-blue-500 pl-6">
+        <h3 class="text-xl font-semibold">Senior Salesforce Engineer — Cardlytics</h3>
+        <p class="text-sm text-gray-400 mb-2">Jun 2017 – Apr 2022 | Atlanta, GA</p>
+        <p>Delivered Lightning migration, CI/CD automation, and enterprise integrations improving scalability.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications -->
+  <section id="certs" class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-6">Certifications</h2>
+    <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-300">
+      <li class="bg-gray-800 p-4 rounded">Salesforce Certified Platform Developer I</li>
+      <li class="bg-gray-800 p-4 rounded">Salesforce Certified Administrator</li>
+      <li class="bg-gray-800 p-4 rounded">Salesforce Certified Platform App Builder</li>
+      <li class="bg-gray-800 p-4 rounded">Salesforce Certified Advanced Administrator</li>
+      <li class="bg-gray-800 p-4 rounded">Salesforce Certified AI Associate</li>
+    </ul>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-8 text-gray-400 text-sm">
+    © 2025 Venkata Prudhvi Raj Konda | Designed with Tailwind CSS
+  </footer>
+
+  <script>
+    feather.replace();
+    ScrollReveal().reveal('section', { distance: '40px', duration: 800, easing: 'ease-out', origin: 'bottom', interval: 200 });
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      document.body.classList.toggle('bg-gray-50');
+      document.body.classList.toggle('text-gray-800');
+    });
+  </script>
+</body>
+</html>
