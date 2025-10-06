@@ -17,6 +17,13 @@
       max-height: 1000px;
       margin-top: 0.75rem;
     }
+    .sidebar {
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+    }
+    .sidebar.open {
+      transform: translateX(0);
+    }
   </style>
 </head>
 <body class="bg-gray-900 text-gray-200 font-sans transition-colors duration-500">
@@ -24,7 +31,7 @@
   <!-- Navbar -->
   <nav class="flex justify-between items-center px-6 py-4 bg-gray-800 shadow-lg sticky top-0 z-50">
     <h1 class="font-bold text-lg">Prudhvi Konda</h1>
-    <div class="space-x-4">
+    <div class="hidden md:flex space-x-4">
       <a href="#about" class="hover:text-blue-400">About</a>
       <a href="#experience" class="hover:text-blue-400">Experience</a>
       <a href="#skills" class="hover:text-blue-400">Skills</a>
@@ -33,10 +40,30 @@
         <i data-feather="moon"></i>
       </button>
     </div>
+    <!-- Mobile menu button -->
+    <button id="menuToggle" class="md:hidden">
+      <i data-feather="menu"></i>
+    </button>
   </nav>
 
+  <!-- Sidebar (mobile) -->
+  <div id="mobileSidebar" class="sidebar fixed top-0 right-0 h-full w-64 bg-gray-800 shadow-lg p-6 z-50">
+    <button id="closeSidebar" class="absolute top-4 right-4">
+      <i data-feather="x"></i>
+    </button>
+    <nav class="flex flex-col space-y-6 mt-12 text-lg">
+      <a href="#about" class="hover:text-blue-400" onclick="closeMenu()">About</a>
+      <a href="#experience" class="hover:text-blue-400" onclick="closeMenu()">Experience</a>
+      <a href="#skills" class="hover:text-blue-400" onclick="closeMenu()">Skills</a>
+      <a href="#certs" class="hover:text-blue-400" onclick="closeMenu()">Certifications</a>
+      <button id="mobileThemeToggle" class="flex items-center gap-2 text-left mt-6" title="Toggle theme">
+        <i data-feather="moon"></i> Theme
+      </button>
+    </nav>
+  </div>
+
   <!-- Hero -->
-  <section class="flex flex-col items-center justify-center text-center py-20">
+  <section class="flex flex-col items-center justify-center text-center py-20 px-4">
     <h1 class="text-5xl font-bold mb-3">Venkata Prudhvi Raj Konda</h1>
     <p class="text-xl text-gray-400">Principal Salesforce Engineer | 5x Certified</p>
 
@@ -161,6 +188,8 @@
 
   <script>
     feather.replace();
+
+    // Scroll animation
     ScrollReveal().reveal('section', {
       distance: '40px',
       duration: 800,
@@ -169,13 +198,15 @@
       interval: 150
     });
 
-    // Theme toggle
-    document.getElementById('themeToggle').addEventListener('click', () => {
+    // Theme toggle (desktop + mobile)
+    function toggleTheme() {
       document.body.classList.toggle('bg-gray-50');
       document.body.classList.toggle('text-gray-800');
-    });
+    }
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+    document.getElementById('mobileThemeToggle').addEventListener('click', toggleTheme);
 
-    // Expandable experience sections
+    // Expandable experience
     document.querySelectorAll('.expand-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const content = btn.nextElementSibling.nextElementSibling;
@@ -185,6 +216,14 @@
         feather.replace();
       });
     });
+
+    // Sidebar toggle
+    const sidebar = document.getElementById('mobileSidebar');
+    document.getElementById('menuToggle').addEventListener('click', () => sidebar.classList.add('open'));
+    document.getElementById('closeSidebar').addEventListener('click', () => sidebar.classList.remove('open'));
+    function closeMenu() {
+      sidebar.classList.remove('open');
+    }
   </script>
 </body>
 </html>
