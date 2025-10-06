@@ -7,6 +7,17 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/feather-icons"></script>
   <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
+  <style>
+    .expand-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+    .expand-content.show {
+      max-height: 1000px;
+      margin-top: 0.75rem;
+    }
+  </style>
 </head>
 <body class="bg-gray-900 text-gray-200 font-sans transition-colors duration-500">
 
@@ -25,13 +36,18 @@
   </nav>
 
   <!-- Hero -->
-  <section class="flex flex-col items-center justify-center text-center h-[80vh]">
+  <section class="flex flex-col items-center justify-center text-center py-20">
     <h1 class="text-5xl font-bold mb-3">Venkata Prudhvi Raj Konda</h1>
     <p class="text-xl text-gray-400">Principal Salesforce Engineer | 5x Certified</p>
-    <div class="mt-6 flex space-x-6">
+    <div class="mt-6 flex space-x-6 text-gray-400">
       <a href="mailto:pkonda1990@gmail.com"><i data-feather="mail"></i></a>
       <a href="https://www.linkedin.com/in/vkonda/"><i data-feather="linkedin"></i></a>
       <a href="tel:+14708197136"><i data-feather="phone"></i></a>
+    </div>
+
+    <!-- Profile Photo -->
+    <div class="mt-10">
+      <img src="1638176038514.jpeg" alt="Venkata Prudhvi Raj Konda" class="w-40 h-40 object-cover rounded-full border-4 border-gray-700 shadow-lg" />
     </div>
   </section>
 
@@ -60,24 +76,57 @@
 
   <!-- Experience -->
   <section id="experience" class="max-w-4xl mx-auto px-4 py-12">
-    <h2 class="text-3xl font-bold mb-8">Experience</h2>
-    <div class="space-y-10">
-      <div class="border-l-4 border-blue-500 pl-6">
-        <h3 class="text-xl font-semibold">Principal Salesforce Engineer — Cardlytics</h3>
-        <p class="text-sm text-gray-400 mb-2">Nov 2022 – Present | Atlanta, GA</p>
-        <p>Led enterprise-scale Salesforce engineering across Lead-to-Cash. Built event-driven data flows, Retool integrations, and CRMA insights pipelines.</p>
-      </div>
-      <div class="border-l-4 border-blue-500 pl-6">
-        <h3 class="text-xl font-semibold">Senior Software Engineer — ActiveCampaign</h3>
-        <p class="text-sm text-gray-400 mb-2">Apr 2022 – Oct 2022 | Atlanta, GA</p>
-        <p>Enhanced Salesforce–ActiveCampaign integrations, enabling reliable marketing automation sync.</p>
-      </div>
-      <div class="border-l-4 border-blue-500 pl-6">
-        <h3 class="text-xl font-semibold">Senior Salesforce Engineer — Cardlytics</h3>
-        <p class="text-sm text-gray-400 mb-2">Jun 2017 – Apr 2022 | Atlanta, GA</p>
-        <p>Delivered Lightning migration, CI/CD automation, and enterprise integrations improving scalability.</p>
+    <h2 class="text-3xl font-bold mb-8">Professional Experience</h2>
+
+    <!-- Cardlytics Principal -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow mb-6">
+      <button class="w-full flex justify-between items-center font-semibold text-left text-xl expand-btn">
+        Principal Salesforce Engineer — Cardlytics
+        <i data-feather="chevron-down"></i>
+      </button>
+      <p class="text-sm text-gray-400 mt-1">Nov 2022 – Present | Atlanta, GA</p>
+      <div class="expand-content text-gray-300">
+        <ul class="list-disc ml-6 mt-3 space-y-1">
+          <li>Led Salesforce integrations across the Lead-to-Cash domain improving scalability and efficiency.</li>
+          <li>Engineered Kafka-based data flows and Retool–Salesforce integrations enabling predictive insights.</li>
+          <li>Built CRMA dashboards, DocuSign integration, and multi-platform contract distribution strategy.</li>
+          <li>Recognized by the CTO for leading the migration and boosting user adoption.</li>
+        </ul>
       </div>
     </div>
+
+    <!-- ActiveCampaign -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow mb-6">
+      <button class="w-full flex justify-between items-center font-semibold text-left text-xl expand-btn">
+        Senior Software Engineer — ActiveCampaign
+        <i data-feather="chevron-down"></i>
+      </button>
+      <p class="text-sm text-gray-400 mt-1">Apr 2022 – Oct 2022 | Atlanta, GA</p>
+      <div class="expand-content text-gray-300">
+        <ul class="list-disc ml-6 mt-3 space-y-1">
+          <li>Enhanced Salesforce–ActiveCampaign integration reliability and scalability.</li>
+          <li>Developed custom automation action blocks for marketing and CRM workflows.</li>
+          <li>Collaborated on architecture revamp with message queues for improved resilience.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Cardlytics Senior -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow mb-6">
+      <button class="w-full flex justify-between items-center font-semibold text-left text-xl expand-btn">
+        Senior Salesforce Engineer — Cardlytics
+        <i data-feather="chevron-down"></i>
+      </button>
+      <p class="text-sm text-gray-400 mt-1">Jun 2017 – Apr 2022 | Atlanta, GA</p>
+      <div class="expand-content text-gray-300">
+        <ul class="list-disc ml-6 mt-3 space-y-1">
+          <li>Built Lightning components and wrappers enabling the org-wide transition to Salesforce Lightning.</li>
+          <li>Implemented Salesforce DX pipelines and CI/CD automation.</li>
+          <li>Integrated Salesforce with GoTransverse, LinkedIn Sales Navigator, and other apps.</li>
+        </ul>
+      </div>
+    </div>
+
   </section>
 
   <!-- Certifications -->
@@ -99,10 +148,29 @@
 
   <script>
     feather.replace();
-    ScrollReveal().reveal('section', { distance: '40px', duration: 800, easing: 'ease-out', origin: 'bottom', interval: 200 });
+    ScrollReveal().reveal('section', {
+      distance: '40px',
+      duration: 800,
+      easing: 'ease-out',
+      origin: 'bottom',
+      interval: 150
+    });
+
+    // Theme toggle
     document.getElementById('themeToggle').addEventListener('click', () => {
       document.body.classList.toggle('bg-gray-50');
       document.body.classList.toggle('text-gray-800');
+    });
+
+    // Expandable experience sections
+    document.querySelectorAll('.expand-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling.nextElementSibling;
+        content.classList.toggle('show');
+        const icon = btn.querySelector('i');
+        icon.setAttribute('data-feather', content.classList.contains('show') ? 'chevron-up' : 'chevron-down');
+        feather.replace();
+      });
     });
   </script>
 </body>
