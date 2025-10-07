@@ -222,76 +222,73 @@
   </footer>
 
   <script>
-    feather.replace();
+    document.addEventListener("DOMContentLoaded", function () {
+      feather.replace();
 
-    // ScrollReveal glow animation
-    ScrollReveal().reveal('section', {
-      distance: '40px',
-      duration: 1000,
-      easing: 'ease-out',
-      origin: 'bottom',
-      interval: 150,
-      opacity: 0,
-      beforeReveal: el => {
-        el.style.boxShadow = '0 0 25px rgba(56, 189, 248, 0.2)';
-        el.style.transition = 'box-shadow 1.2s ease';
-      },
-      afterReveal: el => setTimeout(() => el.style.boxShadow = 'none', 800)
-    });
+      // Sidebar toggle
+      const sidebar = document.getElementById('mobileSidebar');
+      document.getElementById('menuToggle').addEventListener('click', () => sidebar.classList.add('open'));
+      document.getElementById('closeSidebar').addEventListener('click', () => sidebar.classList.remove('open'));
+      window.closeMenu = () => sidebar.classList.remove('open');
 
-    // Theme toggle
-    function toggleTheme() {
-      document.body.classList.toggle('bg-gray-50');
-      document.body.classList.toggle('text-gray-800');
-    }
-    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
-    document.getElementById('mobileThemeToggle').addEventListener('click', toggleTheme);
-
-    // Sidebar toggle
-    const sidebar = document.getElementById('mobileSidebar');
-    document.getElementById('menuToggle').addEventListener('click', () => sidebar.classList.add('open'));
-    document.getElementById('closeSidebar').addEventListener('click', () => sidebar.classList.remove('open'));
-    function closeMenu() { sidebar.classList.remove('open'); }
-
-    // Expandable Experience Cards
-    document.querySelectorAll('.expand-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const content = btn.nextElementSibling.nextElementSibling;
-        content.classList.toggle('show');
-        const icon = btn.querySelector('i');
-        icon.setAttribute('data-feather', content.classList.contains('show') ? 'chevron-up' : 'chevron-down');
-        feather.replace();
-      });
-    });
-
-    // Fetch GitHub Repositories
-    async function fetchRepos() {
-      const container = document.getElementById("repoContainer");
-      const loading = document.getElementById("loadingText");
-      try {
-        const res = await fetch("https://api.github.com/users/prudhvikonda/repos?sort=updated&per_page=6");
-        const repos = await res.json();
-        loading.remove();
-        repos.forEach(repo => {
-          const card = document.createElement("div");
-          card.className = "bg-gray-800 p-5 rounded-lg shadow hover:bg-gray-700 transition";
-          card.innerHTML = `
-            <h3 class="font-semibold text-lg mb-1 text-blue-400">
-              <a href="${repo.html_url}" target="_blank">${repo.name}</a>
-            </h3>
-            <p class="text-sm text-gray-400 mb-2">${repo.description || "No description available"}</p>
-            <div class="flex items-center gap-2 text-gray-500 text-sm">
-              <i data-feather="star" class="w-4 h-4"></i> ${repo.stargazers_count}
-            </div>
-          `;
-          container.appendChild(card);
+      // Expandable Experience Cards
+      document.querySelectorAll('.expand-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const content = btn.nextElementSibling.nextElementSibling;
+          content.classList.toggle('show');
+          const icon = btn.querySelector('i');
+          icon.setAttribute('data-feather', content.classList.contains('show') ? 'chevron-up' : 'chevron-down');
+          feather.replace();
         });
-        feather.replace();
-      } catch (err) {
-        loading.textContent = "Unable to load repositories right now.";
+      });
+
+      // ScrollReveal glow animation
+      ScrollReveal().reveal('section', {
+        distance: '40px',
+        duration: 1000,
+        easing: 'ease-out',
+        origin: 'bottom',
+        interval: 150,
+        opacity: 0,
+        beforeReveal: el => {
+          el.style.boxShadow = '0 0 25px rgba(56, 189, 248, 0.2)';
+          el.style.transition = 'box-shadow 1.2s ease';
+        },
+        afterReveal: el => setTimeout(() => el.style.boxShadow = 'none', 800)
+      });
+
+      // Fetch GitHub Repos
+      async function fetchRepos() {
+        const container = document.getElementById("repoContainer");
+        const loading = document.getElementById("loadingText");
+        try {
+          const res = await fetch("https://api.github.com/users/prudhvikonda/repos?sort=updated&per_page=6");
+          if (!res.ok) throw new Error("GitHub API error");
+          const repos = await res.json();
+          loading.remove();
+          repos.forEach(repo => {
+            const card = document.createElement("div");
+            card.className = "bg-slate-800 p-5 rounded-lg shadow hover:bg-slate-700 transition";
+            card.innerHTML = `
+              <h3 class="font-semibold text-lg mb-1 text-blue-400">
+                <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+              </h3>
+              <p class="text-sm text-gray-400 mb-2">${repo.description || "No description available"}</p>
+              <div class="flex items-center gap-2 text-gray-500 text-sm">
+                <i data-feather="star" class="w-4 h-4"></i> ${repo.stargazers_count}
+              </div>
+            `;
+            container.appendChild(card);
+          });
+          feather.replace();
+        } catch (err) {
+          console.error(err);
+          loading.textContent = "Unable to load repositories right now.";
+        }
       }
-    }
-    fetchRepos();
+      fetchRepos();
+    });
   </script>
+
 </body>
 </html>
