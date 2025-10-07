@@ -36,26 +36,21 @@
       <a href="#experience" class="hover:text-blue-400">Experience</a>
       <a href="#skills" class="hover:text-blue-400">Skills</a>
       <a href="#certs" class="hover:text-blue-400">Certifications</a>
-      <button id="themeToggle" class="ml-4" title="Toggle theme">
-        <i data-feather="moon"></i>
-      </button>
+      <a href="#education" class="hover:text-blue-400">Education</a>
+      <button id="themeToggle" class="ml-4" title="Toggle theme"><i data-feather="moon"></i></button>
     </div>
-    <!-- Mobile menu button -->
-    <button id="menuToggle" class="md:hidden">
-      <i data-feather="menu"></i>
-    </button>
+    <button id="menuToggle" class="md:hidden"><i data-feather="menu"></i></button>
   </nav>
 
   <!-- Sidebar (mobile) -->
   <div id="mobileSidebar" class="sidebar fixed top-0 right-0 h-full w-64 bg-gray-800 shadow-lg p-6 z-50">
-    <button id="closeSidebar" class="absolute top-4 right-4">
-      <i data-feather="x"></i>
-    </button>
+    <button id="closeSidebar" class="absolute top-4 right-4"><i data-feather="x"></i></button>
     <nav class="flex flex-col space-y-6 mt-12 text-lg">
       <a href="#about" class="hover:text-blue-400" onclick="closeMenu()">About</a>
       <a href="#experience" class="hover:text-blue-400" onclick="closeMenu()">Experience</a>
       <a href="#skills" class="hover:text-blue-400" onclick="closeMenu()">Skills</a>
       <a href="#certs" class="hover:text-blue-400" onclick="closeMenu()">Certifications</a>
+      <a href="#education" class="hover:text-blue-400" onclick="closeMenu()">Education</a>
       <button id="mobileThemeToggle" class="flex items-center gap-2 text-left mt-6" title="Toggle theme">
         <i data-feather="moon"></i> Theme
       </button>
@@ -127,10 +122,11 @@
       <p class="text-sm text-gray-400 mt-1">Nov 2022 – Present | Atlanta, GA</p>
       <div class="expand-content text-gray-300">
         <ul class="list-disc ml-6 mt-3 space-y-1">
-          <li>Led Salesforce integrations across the Lead-to-Cash domain improving scalability and efficiency.</li>
+          <li>Led Salesforce integrations across Lead-to-Cash domain improving scalability and efficiency.</li>
           <li>Engineered Kafka-based data flows and Retool–Salesforce integrations enabling predictive insights.</li>
           <li>Built CRMA dashboards, DocuSign integration, and multi-platform contract distribution strategy.</li>
-          <li>Recognized by the CTO for leading the migration and boosting user adoption.</li>
+          <li>Recognized by the CTO for leading Salesforce migration and boosting user adoption.</li>
+          <li>Developed proactive monitoring and alerting framework improving org reliability.</li>
         </ul>
       </div>
     </div>
@@ -145,8 +141,8 @@
       <div class="expand-content text-gray-300">
         <ul class="list-disc ml-6 mt-3 space-y-1">
           <li>Enhanced Salesforce–ActiveCampaign integration reliability and scalability.</li>
-          <li>Developed custom automation action blocks for marketing and CRM workflows.</li>
-          <li>Collaborated on architecture revamp with message queues for improved resilience.</li>
+          <li>Developed automation blocks for cross-platform workflows.</li>
+          <li>Improved data sync reliability and redesigned architecture with message queues.</li>
         </ul>
       </div>
     </div>
@@ -160,13 +156,44 @@
       <p class="text-sm text-gray-400 mt-1">Jun 2017 – Apr 2022 | Atlanta, GA</p>
       <div class="expand-content text-gray-300">
         <ul class="list-disc ml-6 mt-3 space-y-1">
-          <li>Built Lightning components and wrappers enabling the org-wide transition to Salesforce Lightning.</li>
-          <li>Implemented Salesforce DX pipelines and CI/CD automation.</li>
-          <li>Integrated Salesforce with GoTransverse, LinkedIn Sales Navigator, and other apps.</li>
+          <li>Engineered Salesforce Lightning transition and CI/CD pipelines using Salesforce DX.</li>
+          <li>Integrated Salesforce with GoTransverse, LinkedIn, SurveyMonkey, and proprietary apps.</li>
+          <li>Implemented Kafka adapters ensuring scalable event-driven data flows.</li>
         </ul>
       </div>
     </div>
 
+    <!-- Model N Salesforce -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow mb-6">
+      <button class="w-full flex justify-between items-center font-semibold text-left text-xl expand-btn">
+        Member of Technical Staff - Salesforce — Model N
+        <i data-feather="chevron-down"></i>
+      </button>
+      <p class="text-sm text-gray-400 mt-1">Jan 2016 – Jun 2017 | Redwood City, CA</p>
+      <div class="expand-content text-gray-300">
+        <ul class="list-disc ml-6 mt-3 space-y-1">
+          <li>Built enterprise-grade CPQ solution for High-Tech industry on Salesforce Platform.</li>
+          <li>Designed frameworks to manage complex quoting, pricing, and configuration workflows.</li>
+          <li>Integrated Salesforce with SAP using Configit REST APIs.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Model N Backend -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow mb-6">
+      <button class="w-full flex justify-between items-center font-semibold text-left text-xl expand-btn">
+        Member of Technical Staff - Backend Engineer — Model N
+        <i data-feather="chevron-down"></i>
+      </button>
+      <p class="text-sm text-gray-400 mt-1">Jun 2012 – Dec 2014 | Hyderabad, India</p>
+      <div class="expand-content text-gray-300">
+        <ul class="list-disc ml-6 mt-3 space-y-1">
+          <li>Developed backend Java services for Contracts, Compliance, and Business Engine modules.</li>
+          <li>Optimized SQL queries reducing report runtimes from 8+ hours to minutes.</li>
+          <li>Built Cognos reporting solutions for business analytics.</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
   <!-- Certifications -->
@@ -181,6 +208,21 @@
     </ul>
   </section>
 
+  <!-- Education -->
+  <section id="education" class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-6">Education</h2>
+    <div class="space-y-4 text-gray-300">
+      <div class="bg-gray-800 p-5 rounded-lg shadow">
+        <h3 class="font-semibold text-lg">Master of Science in Computer Science</h3>
+        <p class="text-sm text-gray-400">Georgia State University, Atlanta — Jan 2015 – May 2016</p>
+      </div>
+      <div class="bg-gray-800 p-5 rounded-lg shadow">
+        <h3 class="font-semibold text-lg">Bachelor of Technology in Computer Science</h3>
+        <p class="text-sm text-gray-400">Jawaharlal Nehru Technological University, Hyderabad — Sep 2008 – May 2012</p>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="text-center py-8 text-gray-400 text-sm">
     © 2025 Venkata Prudhvi Raj Konda | Designed with Tailwind CSS
@@ -188,17 +230,9 @@
 
   <script>
     feather.replace();
+    ScrollReveal().reveal('section', { distance: '40px', duration: 800, easing: 'ease-out', origin: 'bottom', interval: 150 });
 
-    // Scroll animation
-    ScrollReveal().reveal('section', {
-      distance: '40px',
-      duration: 800,
-      easing: 'ease-out',
-      origin: 'bottom',
-      interval: 150
-    });
-
-    // Theme toggle (desktop + mobile)
+    // Theme toggle
     function toggleTheme() {
       document.body.classList.toggle('bg-gray-50');
       document.body.classList.toggle('text-gray-800');
@@ -206,7 +240,7 @@
     document.getElementById('themeToggle').addEventListener('click', toggleTheme);
     document.getElementById('mobileThemeToggle').addEventListener('click', toggleTheme);
 
-    // Expandable experience
+    // Expandable sections
     document.querySelectorAll('.expand-btn').forEach(btn => {
       btn.addEventListener('click', () => {
         const content = btn.nextElementSibling.nextElementSibling;
@@ -221,9 +255,7 @@
     const sidebar = document.getElementById('mobileSidebar');
     document.getElementById('menuToggle').addEventListener('click', () => sidebar.classList.add('open'));
     document.getElementById('closeSidebar').addEventListener('click', () => sidebar.classList.remove('open'));
-    function closeMenu() {
-      sidebar.classList.remove('open');
-    }
+    function closeMenu() { sidebar.classList.remove('open'); }
   </script>
 </body>
 </html>
