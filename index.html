@@ -12,35 +12,37 @@
     .expand-content.show { max-height: 1000px; margin-top: 0.75rem; }
     .sidebar { transform: translateX(100%); transition: transform 0.3s ease; }
     .sidebar.open { transform: translateX(0); }
+    a, button { transition: all 0.3s ease; }
+    a:hover, button:hover { filter: brightness(1.1); }
   </style>
 </head>
-<body class="bg-gray-900 text-gray-200 font-sans transition-colors duration-500">
+<body class="bg-slate-900 text-gray-200 font-sans transition-colors duration-500">
 
   <!-- Navbar -->
-  <nav class="flex justify-between items-center px-6 py-4 bg-gray-800 shadow-lg sticky top-0 z-50">
-    <h1 class="font-bold text-lg">Prudhvi Konda</h1>
+  <nav class="flex justify-between items-center px-6 py-4 bg-slate-800 border-b border-cyan-500/20 shadow-lg sticky top-0 z-50">
+    <h1 class="font-bold text-lg text-cyan-400">Prudhvi Konda</h1>
     <div class="hidden md:flex space-x-4">
-      <a href="#about" class="hover:text-blue-400">About</a>
-      <a href="#experience" class="hover:text-blue-400">Experience</a>
-      <a href="#skills" class="hover:text-blue-400">Skills</a>
-      <a href="#projects" class="hover:text-blue-400">Projects</a>
-      <a href="#certs" class="hover:text-blue-400">Certifications</a>
-      <a href="#education" class="hover:text-blue-400">Education</a>
+      <a href="#about" class="hover:text-cyan-300">About</a>
+      <a href="#experience" class="hover:text-cyan-300">Experience</a>
+      <a href="#skills" class="hover:text-cyan-300">Skills</a>
+      <a href="#projects" class="hover:text-cyan-300">Projects</a>
+      <a href="#certs" class="hover:text-cyan-300">Certifications</a>
+      <a href="#education" class="hover:text-cyan-300">Education</a>
       <button id="themeToggle" class="ml-4" title="Toggle theme"><i data-feather="moon"></i></button>
     </div>
     <button id="menuToggle" class="md:hidden"><i data-feather="menu"></i></button>
   </nav>
 
   <!-- Sidebar (mobile) -->
-  <div id="mobileSidebar" class="sidebar fixed top-0 right-0 h-full w-64 bg-gray-800 shadow-lg p-6 z-50">
+  <div id="mobileSidebar" class="sidebar fixed top-0 right-0 h-full w-64 bg-slate-800 shadow-lg p-6 z-50">
     <button id="closeSidebar" class="absolute top-4 right-4"><i data-feather="x"></i></button>
     <nav class="flex flex-col space-y-6 mt-12 text-lg">
-      <a href="#about" class="hover:text-blue-400" onclick="closeMenu()">About</a>
-      <a href="#experience" class="hover:text-blue-400" onclick="closeMenu()">Experience</a>
-      <a href="#skills" class="hover:text-blue-400" onclick="closeMenu()">Skills</a>
-      <a href="#projects" class="hover:text-blue-400" onclick="closeMenu()">Projects</a>
-      <a href="#certs" class="hover:text-blue-400" onclick="closeMenu()">Certifications</a>
-      <a href="#education" class="hover:text-blue-400" onclick="closeMenu()">Education</a>
+      <a href="#about" class="hover:text-cyan-300" onclick="closeMenu()">About</a>
+      <a href="#experience" class="hover:text-cyan-300" onclick="closeMenu()">Experience</a>
+      <a href="#skills" class="hover:text-cyan-300" onclick="closeMenu()">Skills</a>
+      <a href="#projects" class="hover:text-cyan-300" onclick="closeMenu()">Projects</a>
+      <a href="#certs" class="hover:text-cyan-300" onclick="closeMenu()">Certifications</a>
+      <a href="#education" class="hover:text-cyan-300" onclick="closeMenu()">Education</a>
       <button id="mobileThemeToggle" class="flex items-center gap-2 text-left mt-6" title="Toggle theme">
         <i data-feather="moon"></i> Theme
       </button>
@@ -49,7 +51,7 @@
 
   <!-- Hero -->
   <section class="flex flex-col items-center justify-center text-center py-20 px-4">
-    <h1 class="text-5xl font-bold mb-3">Venkata Prudhvi Raj Konda</h1>
+    <h1 class="text-5xl font-bold mb-3 text-cyan-400">Venkata Prudhvi Raj Konda</h1>
     <p class="text-xl text-gray-400">Principal Salesforce Engineer | 5x Certified</p>
 
     <!-- Social Icons -->
@@ -65,12 +67,13 @@
 
     <!-- Profile Photo -->
     <div class="mt-10">
-      <img src="1638176038514.jpeg" alt="Venkata Prudhvi Raj Konda" class="w-40 h-40 object-cover rounded-full border-4 border-gray-700 shadow-lg" />
+      <img src="1638176038514.jpeg" alt="Venkata Prudhvi Raj Konda" class="w-40 h-40 object-cover rounded-full border-4 border-slate-700 shadow-cyan-500/20 shadow-lg" />
     </div>
 
     <!-- Download Resume -->
     <div class="mt-6">
-      <a href="Venkata_Prudhvi_Raj_Konda_-_Principal_Salesforce_Engineer.pdf" download class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg shadow-md inline-flex items-center gap-2 transition">
+      <a href="Venkata_Prudhvi_Raj_Konda_-_Principal_Salesforce_Engineer.pdf" download
+         class="bg-cyan-600 hover:bg-cyan-700 text-white px-5 py-2 rounded-lg shadow-cyan-500/20 shadow-md inline-flex items-center gap-2 transition">
         <i data-feather="download"></i> Download Resume
       </a>
     </div>
@@ -78,7 +81,7 @@
 
   <!-- About -->
   <section id="about" class="max-w-4xl mx-auto px-4 py-12">
-    <h2 class="text-3xl font-bold mb-4">About</h2>
+    <h2 class="text-3xl font-bold mb-4 text-cyan-400">About</h2>
     <p class="text-gray-300 leading-relaxed">
       I’m a Principal Salesforce Engineer with 9+ years of experience delivering scalable Salesforce solutions
       across Sales, Service, and CPQ. I’ve led enterprise transformations, architected integrations, and driven
@@ -88,23 +91,23 @@
 
   <!-- Skills -->
   <section id="skills" class="max-w-4xl mx-auto px-4 py-12">
-    <h2 class="text-3xl font-bold mb-6">Technical Skills</h2>
+    <h2 class="text-3xl font-bold mb-6 text-cyan-400">Technical Skills</h2>
     <div class="grid grid-cols-2 md:grid-cols-3 gap-6 text-center">
-      <div class="bg-gray-800 rounded-xl p-4 shadow">Salesforce Platform</div>
-      <div class="bg-gray-800 rounded-xl p-4 shadow">Apex & LWC</div>
-      <div class="bg-gray-800 rounded-xl p-4 shadow">AWS</div>
-      <div class="bg-gray-800 rounded-xl p-4 shadow">REST & CI/CD</div>
-      <div class="bg-gray-800 rounded-xl p-4 shadow">Java, C#</div>
-      <div class="bg-gray-800 rounded-xl p-4 shadow">Retool & CRMA</div>
+      <div class="bg-slate-800 rounded-xl p-4 shadow-cyan-500/10 shadow">Salesforce Platform</div>
+      <div class="bg-slate-800 rounded-xl p-4 shadow-cyan-500/10 shadow">Apex & LWC</div>
+      <div class="bg-slate-800 rounded-xl p-4 shadow-cyan-500/10 shadow">AWS</div>
+      <div class="bg-slate-800 rounded-xl p-4 shadow-cyan-500/10 shadow">REST & CI/CD</div>
+      <div class="bg-slate-800 rounded-xl p-4 shadow-cyan-500/10 shadow">Java, C#</div>
+      <div class="bg-slate-800 rounded-xl p-4 shadow-cyan-500/10 shadow">Retool & CRMA</div>
     </div>
   </section>
 
   <!-- Experience -->
   <section id="experience" class="max-w-4xl mx-auto px-4 py-12">
-    <h2 class="text-3xl font-bold mb-8">Professional Experience</h2>
+    <h2 class="text-3xl font-bold mb-8 text-cyan-400">Professional Experience</h2>
 
-    <!-- Cardlytics Principal -->
-    <div class="bg-gray-800 p-6 rounded-lg shadow mb-6">
+    <!-- Roles -->
+    <div class="bg-slate-800 p-6 rounded-lg shadow mb-6">
       <button class="w-full flex justify-between items-center font-semibold text-left text-xl expand-btn">
         Principal Salesforce Engineer — Cardlytics
         <i data-feather="chevron-down"></i>
@@ -121,8 +124,7 @@
       </div>
     </div>
 
-    <!-- ActiveCampaign -->
-    <div class="bg-gray-800 p-6 rounded-lg shadow mb-6">
+    <div class="bg-slate-800 p-6 rounded-lg shadow mb-6">
       <button class="w-full flex justify-between items-center font-semibold text-left text-xl expand-btn">
         Senior Software Engineer — ActiveCampaign
         <i data-feather="chevron-down"></i>
@@ -137,8 +139,7 @@
       </div>
     </div>
 
-    <!-- Cardlytics Senior -->
-    <div class="bg-gray-800 p-6 rounded-lg shadow mb-6">
+    <div class="bg-slate-800 p-6 rounded-lg shadow mb-6">
       <button class="w-full flex justify-between items-center font-semibold text-left text-xl expand-btn">
         Senior Salesforce Engineer — Cardlytics
         <i data-feather="chevron-down"></i>
@@ -153,8 +154,7 @@
       </div>
     </div>
 
-    <!-- Model N Salesforce -->
-    <div class="bg-gray-800 p-6 rounded-lg shadow mb-6">
+    <div class="bg-slate-800 p-6 rounded-lg shadow mb-6">
       <button class="w-full flex justify-between items-center font-semibold text-left text-xl expand-btn">
         Member of Technical Staff - Salesforce — Model N
         <i data-feather="chevron-down"></i>
@@ -169,8 +169,7 @@
       </div>
     </div>
 
-    <!-- Model N Backend -->
-    <div class="bg-gray-800 p-6 rounded-lg shadow mb-6">
+    <div class="bg-slate-800 p-6 rounded-lg shadow mb-6">
       <button class="w-full flex justify-between items-center font-semibold text-left text-xl expand-btn">
         Member of Technical Staff - Backend Engineer — Model N
         <i data-feather="chevron-down"></i>
@@ -188,25 +187,25 @@
 
   <!-- Certifications -->
   <section id="certs" class="max-w-4xl mx-auto px-4 py-12">
-    <h2 class="text-3xl font-bold mb-6">Certifications</h2>
+    <h2 class="text-3xl font-bold mb-6 text-cyan-400">Certifications</h2>
     <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-300">
-      <li class="bg-gray-800 p-4 rounded">Salesforce Certified Platform Developer I</li>
-      <li class="bg-gray-800 p-4 rounded">Salesforce Certified Administrator</li>
-      <li class="bg-gray-800 p-4 rounded">Salesforce Certified Platform App Builder</li>
-      <li class="bg-gray-800 p-4 rounded">Salesforce Certified Advanced Administrator</li>
-      <li class="bg-gray-800 p-4 rounded">Salesforce Certified AI Associate</li>
+      <li class="bg-slate-800 p-4 rounded">Salesforce Certified Platform Developer I</li>
+      <li class="bg-slate-800 p-4 rounded">Salesforce Certified Administrator</li>
+      <li class="bg-slate-800 p-4 rounded">Salesforce Certified Platform App Builder</li>
+      <li class="bg-slate-800 p-4 rounded">Salesforce Certified Advanced Administrator</li>
+      <li class="bg-slate-800 p-4 rounded">Salesforce Certified AI Associate</li>
     </ul>
   </section>
 
   <!-- Education -->
   <section id="education" class="max-w-4xl mx-auto px-4 py-12">
-    <h2 class="text-3xl font-bold mb-6">Education</h2>
+    <h2 class="text-3xl font-bold mb-6 text-cyan-400">Education</h2>
     <div class="space-y-4 text-gray-300">
-      <div class="bg-gray-800 p-5 rounded-lg shadow">
+      <div class="bg-slate-800 p-5 rounded-lg shadow">
         <h3 class="font-semibold text-lg">Master of Science in Computer Science</h3>
         <p class="text-sm text-gray-400">Georgia State University, Atlanta — Jan 2015 – May 2016</p>
       </div>
-      <div class="bg-gray-800 p-5 rounded-lg shadow">
+      <div class="bg-slate-800 p-5 rounded-lg shadow">
         <h3 class="font-semibold text-lg">Bachelor of Technology in Computer Science</h3>
         <p class="text-sm text-gray-400">Jawaharlal Nehru Technological University, Hyderabad — Sep 2008 – May 2012</p>
       </div>
@@ -215,7 +214,7 @@
 
   <!-- Projects -->
   <section id="projects" class="max-w-4xl mx-auto px-4 py-12">
-    <h2 class="text-3xl font-bold mb-6">GitHub Projects</h2>
+    <h2 class="text-3xl font-bold mb-6 text-cyan-400">GitHub Projects</h2>
     <div id="repoContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <p id="loadingText" class="text-gray-400 col-span-full">Loading projects from GitHub...</p>
     </div>
@@ -228,7 +227,21 @@
 
   <script>
     feather.replace();
-    ScrollReveal().reveal('section', { distance: '40px', duration: 800, easing: 'ease-out', origin: 'bottom', interval: 150 });
+
+    // ScrollReveal glow animation
+    ScrollReveal().reveal('section', {
+      distance: '40px',
+      duration: 1000,
+      easing: 'ease-out',
+      origin: 'bottom',
+      interval: 150,
+      opacity: 0,
+      beforeReveal: el => {
+        el.style.boxShadow = '0 0 25px rgba(56, 189, 248, 0.2)';
+        el.style.transition = 'box-shadow 1.2s ease';
+      },
+      afterReveal: el => setTimeout(() => el.style.boxShadow = 'none', 800)
+    });
 
     // Theme toggle
     function toggleTheme() {
@@ -244,24 +257,35 @@
     document.getElementById('closeSidebar').addEventListener('click', () => sidebar.classList.remove('open'));
     function closeMenu() { sidebar.classList.remove('open'); }
 
-    // Fetch GitHub Repositories
+    // Expandable Experience Cards
+    document.querySelectorAll('.expand-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const content = btn.nextElementSibling.nextElementSibling;
+        content.classList.toggle('show');
+        const icon = btn.querySelector('i');
+        icon.setAttribute('data-feather', content.classList.contains('show') ? 'chevron-up' : 'chevron-down');
+        feather.replace();
+      });
+    });
+
+    // Fetch pinned GitHub repositories
     async function fetchRepos() {
       const container = document.getElementById("repoContainer");
       const loading = document.getElementById("loadingText");
       try {
-        const res = await fetch("https://api.github.com/users/prudhvikonda/repos?sort=updated&per_page=6");
+        const res = await fetch("https://gh-pinned-repos.egoist.dev/?username=prudhvikonda");
         const repos = await res.json();
         loading.remove();
         repos.forEach(repo => {
           const card = document.createElement("div");
-          card.className = "bg-gray-800 p-5 rounded-lg shadow hover:bg-gray-700 transition";
+          card.className = "bg-slate-800 p-5 rounded-lg shadow hover:bg-slate-700 transition";
           card.innerHTML = `
-            <h3 class="font-semibold text-lg mb-1 text-blue-400">
-              <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+            <h3 class="font-semibold text-lg mb-1 text-cyan-400">
+              <a href="${repo.link}" target="_blank">${repo.repo}</a>
             </h3>
             <p class="text-sm text-gray-400 mb-2">${repo.description || "No description available"}</p>
             <div class="flex items-center gap-2 text-gray-500 text-sm">
-              <i data-feather="star" class="w-4 h-4"></i> ${repo.stargazers_count}
+              <i data-feather="star" class="w-4 h-4"></i> ${repo.stars}
             </div>
           `;
           container.appendChild(card);
