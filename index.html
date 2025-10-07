@@ -8,22 +8,10 @@
   <script src="https://unpkg.com/feather-icons"></script>
   <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
   <style>
-    .expand-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: all 0.4s ease;
-    }
-    .expand-content.show {
-      max-height: 1000px;
-      margin-top: 0.75rem;
-    }
-    .sidebar {
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-    }
-    .sidebar.open {
-      transform: translateX(0);
-    }
+    .expand-content { max-height: 0; overflow: hidden; transition: all 0.4s ease; }
+    .expand-content.show { max-height: 1000px; margin-top: 0.75rem; }
+    .sidebar { transform: translateX(100%); transition: transform 0.3s ease; }
+    .sidebar.open { transform: translateX(0); }
   </style>
 </head>
 <body class="bg-gray-900 text-gray-200 font-sans transition-colors duration-500">
@@ -35,6 +23,7 @@
       <a href="#about" class="hover:text-blue-400">About</a>
       <a href="#experience" class="hover:text-blue-400">Experience</a>
       <a href="#skills" class="hover:text-blue-400">Skills</a>
+      <a href="#projects" class="hover:text-blue-400">Projects</a>
       <a href="#certs" class="hover:text-blue-400">Certifications</a>
       <a href="#education" class="hover:text-blue-400">Education</a>
       <button id="themeToggle" class="ml-4" title="Toggle theme"><i data-feather="moon"></i></button>
@@ -49,6 +38,7 @@
       <a href="#about" class="hover:text-blue-400" onclick="closeMenu()">About</a>
       <a href="#experience" class="hover:text-blue-400" onclick="closeMenu()">Experience</a>
       <a href="#skills" class="hover:text-blue-400" onclick="closeMenu()">Skills</a>
+      <a href="#projects" class="hover:text-blue-400" onclick="closeMenu()">Projects</a>
       <a href="#certs" class="hover:text-blue-400" onclick="closeMenu()">Certifications</a>
       <a href="#education" class="hover:text-blue-400" onclick="closeMenu()">Education</a>
       <button id="mobileThemeToggle" class="flex items-center gap-2 text-left mt-6" title="Toggle theme">
@@ -223,6 +213,14 @@
     </div>
   </section>
 
+  <!-- Projects -->
+  <section id="projects" class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-6">GitHub Projects</h2>
+    <div id="repoContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <p id="loadingText" class="text-gray-400 col-span-full">Loading projects from GitHub...</p>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="text-center py-8 text-gray-400 text-sm">
     © 2025 Venkata Prudhvi Raj Konda | Designed with Tailwind CSS
@@ -240,22 +238,40 @@
     document.getElementById('themeToggle').addEventListener('click', toggleTheme);
     document.getElementById('mobileThemeToggle').addEventListener('click', toggleTheme);
 
-    // Expandable sections
-    document.querySelectorAll('.expand-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const content = btn.nextElementSibling.nextElementSibling;
-        content.classList.toggle('show');
-        const icon = btn.querySelector('i');
-        icon.setAttribute('data-feather', content.classList.contains('show') ? 'chevron-up' : 'chevron-down');
-        feather.replace();
-      });
-    });
-
     // Sidebar toggle
     const sidebar = document.getElementById('mobileSidebar');
     document.getElementById('menuToggle').addEventListener('click', () => sidebar.classList.add('open'));
     document.getElementById('closeSidebar').addEventListener('click', () => sidebar.classList.remove('open'));
     function closeMenu() { sidebar.classList.remove('open'); }
+
+    // Fetch GitHub Repositories
+    async function fetchRepos() {
+      const container = document.getElementById("repoContainer");
+      const loading = document.getElementById("loadingText");
+      try {
+        const res = await fetch("https://api.github.com/users/prudhvikonda/repos?sort=updated&per_page=6");
+        const repos = await res.json();
+        loading.remove();
+        repos.forEach(repo => {
+          const card = document.createElement("div");
+          card.className = "bg-gray-800 p-5 rounded-lg shadow hover:bg-gray-700 transition";
+          card.innerHTML = `
+            <h3 class="font-semibold text-lg mb-1 text-blue-400">
+              <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+            </h3>
+            <p class="text-sm text-gray-400 mb-2">${repo.description || "No description available"}</p>
+            <div class="flex items-center gap-2 text-gray-500 text-sm">
+              <i data-feather="star" class="w-4 h-4"></i> ${repo.stargazers_count}
+            </div>
+          `;
+          container.appendChild(card);
+        });
+        feather.replace();
+      } catch (err) {
+        loading.textContent = "Unable to load repositories right now.";
+      }
+    }
+    fetchRepos();
   </script>
 </body>
 </html>
