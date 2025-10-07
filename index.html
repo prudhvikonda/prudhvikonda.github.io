@@ -264,24 +264,24 @@
       });
     });
 
-    // Fetch pinned GitHub repositories
+    // Fetch GitHub Repositories
     async function fetchRepos() {
       const container = document.getElementById("repoContainer");
       const loading = document.getElementById("loadingText");
       try {
-        const res = await fetch("https://gh-pinned-repos.egoist.dev/?username=prudhvikonda");
+        const res = await fetch("https://api.github.com/users/prudhvikonda/repos?sort=updated&per_page=6");
         const repos = await res.json();
         loading.remove();
         repos.forEach(repo => {
           const card = document.createElement("div");
-          card.className = "bg-slate-800 p-5 rounded-lg shadow hover:bg-slate-700 transition";
+          card.className = "bg-gray-800 p-5 rounded-lg shadow hover:bg-gray-700 transition";
           card.innerHTML = `
-            <h3 class="font-semibold text-lg mb-1 text-cyan-400">
-              <a href="${repo.link}" target="_blank">${repo.repo}</a>
+            <h3 class="font-semibold text-lg mb-1 text-blue-400">
+              <a href="${repo.html_url}" target="_blank">${repo.name}</a>
             </h3>
             <p class="text-sm text-gray-400 mb-2">${repo.description || "No description available"}</p>
             <div class="flex items-center gap-2 text-gray-500 text-sm">
-              <i data-feather="star" class="w-4 h-4"></i> ${repo.stars}
+              <i data-feather="star" class="w-4 h-4"></i> ${repo.stargazers_count}
             </div>
           `;
           container.appendChild(card);
